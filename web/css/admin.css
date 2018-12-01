@@ -1,0 +1,388 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Text;
+  /* Имя шрифта */
+  src: url("fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-Light.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-LightItalic.ttf");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-Semibold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-SemiboldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-ExtraBold.ttf");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fonts/OpenSans-ExtraBoldItalic.ttf");
+  font-weight: 900;
+  font-style: italic;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sup, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "OpenSans";
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  list-style: none;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+:after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+pre {
+  color: black;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+input, textarea {
+  font-family: "OpenSans";
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  padding: 12px 18px;
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  background: none;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+.button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3f2103;
+  -webkit-box-shadow: 0 3px 0 rgba(254, 149, 0, 0.6);
+          box-shadow: 0 3px 0 rgba(254, 149, 0, 0.6);
+  border-radius: 150px;
+  background: #fee900;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fee900), to(#feb900));
+  background: linear-gradient(180deg, #fee900, #feb900);
+}
+
+.button.disable {
+  opacity: .3;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #febf00;
+  background: -webkit-gradient(linear, left top, left bottom, from(#febf00), to(#febf00));
+  background: linear-gradient(180deg, #febf00, #febf00);
+}
+
+.button.disable:hover {
+  cursor: default;
+  background: #fee900;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fee900), to(#feb900));
+  background: linear-gradient(180deg, #fee900, #feb900);
+}
+
+/*
+ * Модальные окна
+ * --------------------------------------------------
+ */
+.modalBody {
+  position: fixed;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 995;
+}
+
+.modalBody .modal {
+  display: none;
+  opacity: 0;
+  -webkit-animation-duration: .8s;
+  animation-duration: .8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+/* Появление */
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+/* Исчезновение */
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+}
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+}
+/*Блок выравнивания*/
+.paddingCont {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 1164px;
+}
+
+/* Устанавливаем ширину */
+.widthCont {
+  width: 1164px;
+}
+
+.positionAuth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: linear-gradient(45deg, #cf6a01, #f4ae03);
+}
+.positionAuth .auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #000;
+  border-radius: 300px;
+  -webkit-box-shadow: 0 0px 10px 1px black;
+          box-shadow: 0 0px 10px 1px black;
+  background: linear-gradient(45deg, #521804, #391001);
+}
+.positionAuth .auth img {
+  margin-top: 30px;
+}
+.positionAuth .auth label {
+  font-size: 22px;
+  margin: 30px 0 10px 0;
+}
+.positionAuth .auth input {
+  color: #cf6a01;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #cf6a01;
+  background: transparent;
+}
+.positionAuth .auth input:focus, .positionAuth .auth input:active {
+  outline: none;
+}
+.positionAuth .auth .signIn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 80px;
+  margin-top: 30px;
+  border-radius: 100px;
+  background: #f4ae03;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+}
+.positionAuth .auth .signIn svg {
+  width: 40px;
+  height: 40px;
+  fill: #532d14;
+}
+.positionAuth .auth .signIn:hover {
+  cursor: pointer;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+.positionAuth .auth .signIn.load {
+  -webkit-animation: rotateBtn .5s infinite linear;
+          animation: rotateBtn .5s infinite linear;
+}
+
+@-webkit-keyframes rotateBtn {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateBtn {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.active {
+  display: block;
+}

@@ -1,0 +1,163 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+	color: #fff;
+}
+
+input, textarea {
+    font-family: "OpenSans";
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    padding: 12px 18px;
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    background: none;
+}
+
+	input:focus, textarea:focus {
+        outline: none;
+    }
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 44px;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #3f2103;
+	box-shadow: 0 3px 0 rgba(254,149,0,0.6);
+	border-radius: 150px;
+	background: #fee900;
+	background: linear-gradient(180deg, #fee900, #feb900);
+}
+
+	.button.disable {
+		opacity: .3;
+	}
+
+	.button:hover {
+		cursor: pointer;
+		background: #febf00;
+		background: linear-gradient(180deg, #febf00, #febf00);
+	}
+
+		.button.disable:hover {
+			cursor: default;
+			background: #fee900;
+	        background: linear-gradient(180deg, #fee900, #feb900);
+		}
+
+/*
+ * Модальные окна
+ * --------------------------------------------------
+ */
+
+.modalBody {
+	position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	background: rgba(0,0,0, 0.75);
+	z-index: 995;
+}
+
+	.modalBody .modal {
+		display: none;
+		opacity: 0;
+		-webkit-animation-duration: .8s;
+        animation-duration: .8s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+	}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.fadeOutUp {
+    -webkit-animation-name: fadeOutUp;
+    animation-name: fadeOutUp;
+}
+
+/* Появление */
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+/* Исчезновение */
+@-webkit-keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+    }
+}
+
+/*Блок выравнивания*/
+.paddingCont {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	min-width: 1164px;
+}
+
+/* Устанавливаем ширину */
+.widthCont {
+	width: 1164px;
+}

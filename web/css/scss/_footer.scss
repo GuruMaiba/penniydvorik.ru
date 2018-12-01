@@ -1,0 +1,62 @@
+.bgFooter {
+	background: #511804;
+	background: linear-gradient(45deg, #160600, #320d00);
+	height: 200px; /*296px*/
+}
+
+.footer {
+	position: relative;
+	background: none;
+
+    .arrowUp {
+        position: absolute;
+        top: -24px;
+        right: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+        border: 3px solid #511804;
+        border-radius: 80px;
+        background: #fff;
+        transition: all .3s ease;
+
+        svg {
+            fill: #511804;
+            transition: all .5s ease;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background: #511804;
+
+            svg { fill: #fff; }
+        }
+    } // end arrowUp
+
+    // перебивка _navBar`a
+    .nav {
+        /*width: 85%;*/
+        height: 90%;
+
+        .info .address .allPoint {
+            top: initial;
+            bottom: 0px;
+            padding: 0 0 25px 0;
+
+            .arrow {
+                border-top: 10px solid rgba(0, 0, 0, .8);
+                border-bottom: 0;
+            }
+        } // end allPoint
+    } // end nav
+
+    .cop {
+        position: absolute;
+        bottom: 15px;
+        left: 12px;
+        font-size: 11px;
+        opacity: .2;
+    }
+} // end footer
